@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>The Little Hangman App</title>
+        <link href="/Hangman/styles/styles.css" rel="stylesheet">
+    </head>
+
+    <body>
+        <div>
+            <h1 id="title">The Little Hangman Game</h1>
+            <h4 id="currentUserPlaying"></h4>
+
+            <form id="generateAutoGame">
+                <select form="generateAutoGame">
+                    <option value="Easy">Easy</option>
+                    <option value="Challenging">Challenging</option>
+                    <option value="Very Hard">Very Hard</option>
+                    <option value="Almost Impossible">Almost Impossible</option>
+                </select>
+                <button class="button">Start Auto Game</button>
+            </form>
+            
+    
+            <form id="newGame">
+                <input placeholder="Enter Game Word" name="gameWord">
+                <input type="number" placeholder="Enter Number Of Tries" name="guessNum">
+                <button class="button">Start New Hangman Game</button>
+            </form>
+
+
+
+            <div id="hangmanInfo"></div>
+
+            <form id="saveNewGameUser">
+                <input placeholder="Name" name="saveGameUserName">
+                <input type="password" name ="userPass" placeholder="password">
+                <button class="button">Create User</button>
+            </form>
+
+
+
+            <form id="userDatabase"></form>
+
+        </div>
+    
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+        <script src="/Hangman/scripts/localStorage.js"></script>
+        <script src="/Hangman/scripts/userDatabase.js"></script>
+        <script src="/Hangman/scripts/wordLibrary.js"></script>
+        <script src="/Hangman/scripts/Hangman.js"></script>
+        <script src="/Hangman/scripts/gameDifficulty.js"></script>
+        <script src="/Hangman/scripts/UI.js"></script>
+        <script src="/Hangman/scripts/UI_UserDatabase.js"></script>
+        <script src="/Hangman/scripts/GameManager.js"></script>
+        <script src="/Hangman/scripts/userDatabaseManager.js"></script>
+
+    </body>
+</html>
