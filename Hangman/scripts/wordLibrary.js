@@ -2,8 +2,9 @@ let words = 'a, about, above, across, act, actor, active, activity, add, afraid,
 
 let formattedWords = words.trim()
 let arr = formattedWords.split(',')
-let wordsArr = []
+export const wordsArr = []
 arr.forEach(word => wordsArr.push(word.slice(1)))
 
 //random number equation
 // console.log(Math.floor(Math.random() * wordsArr.length))
+

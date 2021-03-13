@@ -1,3 +1,5 @@
+// import {wordsArr} from '../wordLibrary.js'
+
 function setWord(difficulty) {
     switch(difficulty) {
         case 'Almost Impossible':
@@ -67,3 +69,6 @@ function getDifficulty (gameWord, setGuesses) {
 
     return difficulty
 }
+
+
+// export {getDifficulty, amountOfUniqueLetters, generateRandomWordWithLengthOf, setNumberOfGuesses, setWord}

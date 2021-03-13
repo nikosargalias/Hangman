@@ -1,3 +1,9 @@
+import {saveToLocalStorage, loadObjectLocalStorage, loadWeakMapFromLocalStorage} from './localStorage.js'
+import GameUser from './userDatabase.js'
+import UserDatabaseUI from './UI_UserDatabase.js'
+import GameManager from './GameManager.js'
+import {renderUserDatabase} from './UI_UserDatabase.js'
+
 const userDatabase = loadObjectLocalStorage('gameUsers')
 
 const _currentUser = new WeakMap()
@@ -27,26 +33,24 @@ class UserDatabaseFunctionality {
             this.updateCurrentUser(userName)
             saveToLocalStorage('gameUsers', userDatabase)
             this.userDatabaseUI.renderUserToDom(userName)
+            renderUserDatabase();
         } else {
             this.userDatabaseUI.alertUserAlreadyExists()
         }
     }
 
     createNewUser(userName, userPassword) {  
-        userDatabase[userName] = new GameUser(userName, userPassword)
+        userDatabase[userName] = new GameUser(userName, userPassword);
     }
 
     updateCurrentUser = (userName) => {
-        // if (this.isUserInDatabase(userName)) {
             currentUser.set(userName)
-        // }
     }
 
     loadUserFromDatabase = (userName, userPass) => {
         if(this.isUserInDatabase(userName) && this.isUserPasswordCorrect(userName, userPass)) {
             currentUser.set(userName)
             this.userDatabaseUI.renderUserToDom(userName)
-            // this.userDatabaseUI.resetDomRender()
         } else {
             this.userDatabaseUI.alertUserCredentialsIncorrect()
         }

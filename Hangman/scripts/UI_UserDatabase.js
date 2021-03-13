@@ -1,3 +1,5 @@
+import {loadObjectLocalStorage} from './localStorage.js';
+import {initializeElementValue} from './UI.js';
 class UserDatabaseUI {
     constructor(setUpNewUser, loadUserFromDatabaseFn) {
         const addNewUser = document.querySelector('#saveNewGameUser')
@@ -19,19 +21,18 @@ class UserDatabaseUI {
     
         this.setUpNewUser(userName, userPass)
     
-        initializeElementValue(e.target.elements.saveGameUserName.value, e.target.elements.userPass.value)
+        initializeElementValue(e.target.elements.saveGameUserName, e.target.elements.userPass)
     }
 
     loadUserFromDatabase = (e) => {
         e.preventDefault()
-        // console.log(this)
     
         const userName = e.target.userName.value
         const userPass = e.target.userPassword.value
     
         this.loadUserFromDatabaseFn(userName, userPass)
     
-        initializeElementValue(e.target.userName.value, e.target.userPassword.value)
+        initializeElementValue(e.target.userPassword)
     }
 
     renderUserToDom(userName) {
@@ -54,14 +55,13 @@ function renderUserDatabase() {
     let renderUserDatabase = document.querySelector('#userDatabase')
     renderUserDatabase.innerHTML = userDatabaseHTML()
     let selectElement = renderUserDatabase.children[1]
-    
     appendOptionsForUserDatabase(selectElement)
 }
 
 function userDatabaseHTML() {
     return `
             <label>Load User:</label>
-            <select id="userDatabaseOptions" name="userName"> </select>
+            <select id="userDatabaseOptions" class="dropdown" name="userName"> </select>
             <input type="password" name="userPassword" placeholder="password">
             <button class="button">Confirm</button>
             `
@@ -69,11 +69,12 @@ function userDatabaseHTML() {
 
 function appendOptionsForUserDatabase(locationToAppend) {
     const userDatabase = loadObjectLocalStorage('gameUsers')
+    const sortedUsers = Object.keys(userDatabase).sort();
     
     let optionDiv = document.createElement('div')
     
-    if(Object.keys(userDatabase).length > 0) {
-        for (prop in userDatabase) {
+    if(sortedUsers.length > 0) {
+        for (const prop of sortedUsers) {
             optionDiv.innerHTML = `<option value="${prop}">${prop}</option>`
             let option = optionDiv.children[0]
             locationToAppend.append(option)
@@ -89,3 +90,5 @@ function appendOptionsForUserDatabase(locationToAppend) {
 (function main() {
     renderUserDatabase()
 })();
+
+export {UserDatabaseUI as default, renderUserDatabase} 

@@ -17,3 +17,5 @@ function loadWeakMapFromLocalStorage(key) {
 
 // localStorage.clear()
 // 
+
+export {saveToLocalStorage, loadObjectLocalStorage, loadWeakMapFromLocalStorage}

@@ -1,9 +1,9 @@
 class UI {
     constructor(startNewGameFn, makeGuessCallback, isGameOverCallback) {
       const newGameForm = document.querySelector('#newGame')
-      newGameForm.addEventListener('submit', this.newGameFormCallback.bind(this));
-
       const randomGameForm = document.querySelector('#generateAutoGame')
+
+      newGameForm.addEventListener('submit', this.newGameFormCallback.bind(this));
       randomGameForm.addEventListener('submit', this.randomGameFormCallback.bind(this))
   
       this.makeGuessCallback = makeGuessCallback;
@@ -17,9 +17,9 @@ class UI {
       const numGuesses = e.target.elements.guessNum.value
 
       this.startNewGameFn(gameWord, numGuesses);
-      e.target.elements.gameWord.value = ''
-      e.target.elements.guessNum.value = ''
-      initializeElementValue(e.target.elements.gameWord.value, e.target.elements.guessNum.value)
+      // e.target.elements.gameWord.value = ''
+      // e.target.elements.guessNum.value = ''
+      initializeElementValue(e.target.elements.gameWord, e.target.elements.guessNum)
     }
 
     randomGameFormCallback(e) {
@@ -123,7 +123,10 @@ class UI {
   }
   
   function initializeElementValue(...elements) {
-    elements.forEach(e => e.value = '')
+    elements.forEach(e => {
+      e.value = ''
+    })
   }
 
-  // export default ui;
+
+  export {initializeElementValue, UI as default};
