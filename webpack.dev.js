@@ -1,16 +1,20 @@
-const { merge } = require('webpack-merge');
-const common = require('./webpack.common.js');
+const { merge } = require("webpack-merge");
+const common = require("./webpack.common.js");
+const path = require("path");
 
 module.exports = merge(common, {
-  mode: 'development',
-  devtool: 'inline-source-map',
+  mode: "development",
+  devtool: "inline-source-map",
   devServer: {
-    contentBase: path.resolve(__dirname, 'dist'),
-    hot: true 
+    contentBase: path.resolve(__dirname, "dist"),
+    // hot: true,
   },
-    devServer: {
-        contentBase: path.resolve(__dirname, 'dist'),
-        hot: true 
-            //Hot Module Replacement (HMR) exchanges, adds, or removes modules while an application is running, without a full reload. This can significantly speed up development in a few ways.
-    }
-})
+  module: {
+    rules: [
+      {
+        test: /\.scss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
+    ],
+  },
+});

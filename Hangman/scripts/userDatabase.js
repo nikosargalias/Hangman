@@ -1,4 +1,5 @@
-import bcrypt from 'bcryptjs';
+// import bcrypt from '.../node_modules/bcryptjs';
+import bcrypt from'bcryptjs';
 const saltRounds = 10;
 class GameUser {
     constructor(userName, userPassword) {

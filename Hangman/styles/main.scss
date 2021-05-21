@@ -1,0 +1,212 @@
+html {
+  font-size: 62.5%;
+
+  @media screen and (max-width: 900px) {
+    font-size: 50%;
+  }
+}
+
+html,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 1.4rem;
+  font-family: "Times New Roman", Times, serif;
+  background: rgb(246, 247, 240);
+  min-height: 100vh;
+  width: 100vw;
+  padding: 5rem;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+h2 {
+  letter-spacing: 3px;
+  font-size: 2rem;
+}
+
+h4,
+h3 {
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+span,
+p {
+  font-size: 2rem;
+  letter-spacing: 1px;
+  margin-right: 0.5rem;
+  padding: 0 0.5rem;
+  border-bottom: solid 1px currentColor;
+  justify-self: start;
+}
+
+input {
+  padding: 1.5rem;
+  outline: none;
+  border: none;
+  font-size: inherit;
+  align-self: start;
+
+  &:focus {
+    border-bottom: rgb(255, 187, 0) 3px solid;
+  }
+}
+
+.page__container {
+  margin: 0 auto;
+  width: 1100px;
+  max-width: 90%;
+
+  display: grid;
+  grid-gap: 5rem 5rem;
+  grid-template-areas:
+    "auto-start manual-start"
+    "game game"
+    "load-user new-user";
+
+  @media screen and (max-width: 900px) {
+    grid-template-areas:
+      "auto-start"
+      "manual-start"
+      "game"
+      "load-user"
+      "new-user";
+    // width: 500px;
+    max-width: 95%;
+  }
+  //   min-height: calc(100vh - 20rem);
+  align-content: space-between;
+  justify-items: stretch;
+}
+
+.start-game {
+  grid-area: auto-start;
+}
+
+.manual-game {
+  grid-area: manual-start;
+}
+
+.game {
+  grid-area: game;
+}
+
+.new-user {
+  grid-area: new-user;
+}
+
+.load-user {
+  grid-area: load-user;
+}
+
+.form {
+  text-align: center;
+  display: grid;
+  grid-gap: 1rem;
+  justify-items: stretch;
+  align-items: start;
+  align-content: start;
+
+  &__select-container {
+    position: relative;
+    select {
+      font-size: inherit;
+      background: rgb(255, 255, 255);
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      outline: none;
+      background-color: rgb(255, 187, 0);
+
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+    }
+    & label {
+      &::after {
+        content: "\21CB";
+        position: absolute;
+        display: block;
+        top: 50%;
+        right: 5%;
+        font-size: 3rem;
+        width: 20px;
+        height: 20px;
+        color: black;
+        transform: rotate(90deg) translate(-50%, -50%);
+        pointer-events: none;
+      }
+    }
+  }
+
+  button {
+    font-size: inherit;
+    padding: 1rem 3rem;
+  }
+}
+
+.gameInfo {
+  margin: 2rem 0;
+  padding: 2rem 0;
+  border-top: solid 1px #333;
+  border-bottom: solid 1px #333;
+  grid-column: 1 / -1;
+  //   border: 5px solid red;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: minmax(50px, 1fr);
+  grid-gap: 2rem 1rem;
+  align-items: center;
+
+  input {
+    width: 100%;
+    justify-self: end;
+
+    @media screen and (max-width: 400px) {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.rendered-letters {
+  justify-self: end;
+}
+
+#renderLetters {
+  //   justify-self: end;
+  span {
+    // margin-right: 1rem;
+    // padding: 0.5rem 0.5rem;
+    border-bottom: solid 1px currentColor;
+  }
+}
+
+.game__result {
+  justify-self: center;
+  grid-column: 1 / -1;
+}
+
+.result {
+  &__letters {
+    span {
+      margin-right: 0;
+      padding: 0;
+    }
+  }
+}

@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 
-<html>
-    <head>
-        <title>The Little Hangman App</title>
-        <link href="./styles/styles.css" rel="stylesheet">
-    </head>
-
-    <body>
-        <div>
-            <h1 id="title">The Little Hangman Game</h1>
-            <h4 id="currentUserPlaying"></h4>
-
-            <form id="generateAutoGame">
-                <select form="generateAutoGame">
-                    <option value="Easy">Easy</option>
-                    <option value="Challenging">Challenging</option>
-                    <option value="Very Hard">Very Hard</option>
-                    <option value="Almost Impossible">Almost Impossible</option>
-                </select>
-                <button class="button">Start Auto Game</button>
-            </form>
-            
-    
-            <form id="newGame">
-                <input placeholder="Enter Game Word" name="gameWord">
-                <input type="number" placeholder="Enter Number Of Tries" name="guessNum">
-                <button class="button">Start New Hangman Game</button>
-            </form>
-
-
-
-            <div id="hangmanInfo"></div>
-
-            <form id="saveNewGameUser">
-                <input placeholder="Name" name="saveGameUserName">
-                <input type="password" name ="userPass" placeholder="password">
-                <button class="button">Create User</button>
-            </form>
-
-
-
-            <form id="userDatabase"></form>
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Little Hangman App</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 id="title">The Little Hangman Game</h1>
+    </header>
+    <div class="page__container">
+      <!-- <div class="game-forms"> -->
+      <form class="start-game form form--small" id="generateAutoGame">
+        <h2 class="form__heading">Auto Game</h2>
+        <div class="form__select-container">
+          <label>
+            <select form="generateAutoGame">
+              <option value="">Choose Your Difficulty:</option>
+              <option value="Easy">Easy</option>
+              <option value="Challenging">Challenging</option>
+              <option value="Very Hard">Very Hard</option>
+              <option value="Almost Impossible">Almost Impossible</option>
+            </select>
+          </label>
         </div>
-    
+        <button class="button">Start Auto Game</button>
+      </form>
 
+      <form class="manual-game form" id="newGame">
+        <h2 class="form__heading">Manual Game</h2>
+        <input placeholder="Enter Game Word" name="gameWord" />
+        <input
+          type="number"
+          placeholder="Enter Number Of Guesses Allowed"
+          name="guessNum"
+        />
+        <button class="button">Start New Hangman Game</button>
+      </form>
+      <!-- </div> -->
+      <!-- <div class="user">
+        <h4 id="currentUserPlaying"></h4>
+      </div> -->
+      <div class="game" id="hangmanInfo"></div>
 
+      <!-- <div class="game-forms"> -->
+      <form class="new-user form" id="saveNewGameUser">
+        <h2 class="form__heading">Create New User Save</h2>
+        <input placeholder="Name" name="saveGameUserName" />
+        <input type="password" name="userPass" placeholder="password" />
+        <button class="button">Create User</button>
+      </form>
 
-        <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
-        <script type="module" src="./scripts/localStorage.js"></script>
-        <script type="module" src="./scripts/userDatabase.js"></script>
-        <script type="module" src="./scripts/wordLibrary.js"></script>
-        <script type="module" src="./scripts/Hangman.js"></script>
-        <script type="module" src="./scripts/UI.js"></script>
-        <script type="module" src="./scripts/UI_UserDatabase.js"></script>
-        <script type="module" src="./scripts/GameManager.js"></script>
-        <script type="module" src="./scripts/userDatabaseManager.js"></script>
+      <form class="load-user form" id="userDatabase"></form>
+      <!-- </div> -->
+    </div>
 
-    </body>
+    <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+    <!-- <script type="module" src="./scripts/localStorage.js"></script>
+    <script type="module" src="./scripts/userDatabase.js"></script>
+    <script type="module" src="./scripts/wordLibrary.js"></script>
+    <script type="module" src="./scripts/Hangman.js"></script>
+    <script type="module" src="./scripts/UI.js"></script>
+    <script type="module" src="./scripts/UI_UserDatabase.js"></script>
+    <script type="module" src="./scripts/GameManager.js"></script>
+    <script type="module" src="./scripts/userDatabaseManager.js"></script> -->
+  </body>
 </html>
