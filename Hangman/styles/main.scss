@@ -141,14 +141,22 @@ input {
     & label {
       &::after {
         content: "\21CB";
+        content: "\21D3";
         position: absolute;
         display: block;
-        top: 40%;
-        right: 5%;
-        font-size: 2rem;
+        font-size: 3rem;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        line-height: 1;
         color: black;
-        transform: rotate(90deg) translate(-50%, -50%);
         pointer-events: none;
+
+        top: 0;
+        right: 0;
+        height: 100%;
+        width: 4rem;
+        background: rgb(171, 219, 131);
       }
     }
   }
@@ -156,6 +164,8 @@ input {
   button {
     font-size: inherit;
     padding: 1rem 3rem;
+    border: none;
+    background-color: rgb(171, 219, 131);
   }
 }
 
