@@ -143,11 +143,9 @@ input {
         content: "\21CB";
         position: absolute;
         display: block;
-        top: 50%;
+        top: 40%;
         right: 5%;
-        font-size: 3rem;
-        width: 20px;
-        height: 20px;
+        font-size: 2rem;
         color: black;
         transform: rotate(90deg) translate(-50%, -50%);
         pointer-events: none;
