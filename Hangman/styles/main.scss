@@ -144,9 +144,9 @@ input {
         content: "\21D3";
         position: absolute;
         display: block;
-        font-size: 3rem;
+        font-size: 2.5rem;
         display: flex;
-        align-items: start;
+        align-items: center;
         justify-content: center;
         line-height: 1;
         color: black;
@@ -166,6 +166,15 @@ input {
     padding: 1rem 3rem;
     border: none;
     background-color: rgb(171, 219, 131);
+    transition: transform 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.02);
+    }
+    &:active {
+      transform: scale(0.98);
+    }
   }
 }
 
